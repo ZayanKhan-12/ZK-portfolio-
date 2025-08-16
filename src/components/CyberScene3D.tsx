@@ -85,6 +85,7 @@ function Interactive4DName() {
     }
   };
 
+  // Create 3D text using geometric shapes arranged as letters
   return (
     <group
       ref={groupRef}
@@ -93,41 +94,150 @@ function Interactive4DName() {
       onPointerUp={handlePointerUp}
       onPointerMove={handlePointerMove}
     >
-      {/* ZAYAN */}
-      <Text3D
-        font="/fonts/Space_Grotesk_Bold.json"
-        size={1.2}
-        height={0.3}
-        position={[-3, 0.5, 0]}
-        curveSegments={12}
-      >
-        ZAYAN
-        <meshStandardMaterial
-          color="#00ffff"
-          emissive="#00ffff"
-          emissiveIntensity={0.5}
-          metalness={0.8}
-          roughness={0.2}
-        />
-      </Text3D>
-      
+      {/* Z */}
+      <group position={[-4, 0.5, 0]}>
+        <mesh position={[0, 0.4, 0]}>
+          <boxGeometry args={[0.8, 0.1, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0, 0, 0]} rotation={[0, 0, -0.5]}>
+          <boxGeometry args={[0.6, 0.1, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0, -0.4, 0]}>
+          <boxGeometry args={[0.8, 0.1, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+      </group>
+
+      {/* A */}
+      <group position={[-2.5, 0.5, 0]}>
+        <mesh position={[-0.2, 0, 0]} rotation={[0, 0, 0.3]}>
+          <boxGeometry args={[0.9, 0.1, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0.2, 0, 0]} rotation={[0, 0, -0.3]}>
+          <boxGeometry args={[0.9, 0.1, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0, 0, 0]}>
+          <boxGeometry args={[0.4, 0.1, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+      </group>
+
+      {/* Y */}
+      <group position={[-1, 0.5, 0]}>
+        <mesh position={[-0.2, 0.2, 0]} rotation={[0, 0, 0.5]}>
+          <boxGeometry args={[0.5, 0.1, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0.2, 0.2, 0]} rotation={[0, 0, -0.5]}>
+          <boxGeometry args={[0.5, 0.1, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0, -0.2, 0]}>
+          <boxGeometry args={[0.1, 0.4, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+      </group>
+
+      {/* A */}
+      <group position={[0.5, 0.5, 0]}>
+        <mesh position={[-0.2, 0, 0]} rotation={[0, 0, 0.3]}>
+          <boxGeometry args={[0.9, 0.1, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0.2, 0, 0]} rotation={[0, 0, -0.3]}>
+          <boxGeometry args={[0.9, 0.1, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0, 0, 0]}>
+          <boxGeometry args={[0.4, 0.1, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+      </group>
+
+      {/* N */}
+      <group position={[2, 0.5, 0]}>
+        <mesh position={[-0.3, 0, 0]}>
+          <boxGeometry args={[0.1, 0.8, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0.3, 0, 0]}>
+          <boxGeometry args={[0.1, 0.8, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0, 0, 0]} rotation={[0, 0, 0.5]}>
+          <boxGeometry args={[0.7, 0.1, 0.3]} />
+          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+      </group>
+
       {/* KHAN */}
-      <Text3D
-        font="/fonts/Space_Grotesk_Bold.json"
-        size={1.2}
-        height={0.3}
-        position={[-2.5, -0.8, 0]}
-        curveSegments={12}
-      >
-        KHAN
-        <meshStandardMaterial
-          color="#ff00ff"
-          emissive="#ff00ff"
-          emissiveIntensity={0.5}
-          metalness={0.8}
-          roughness={0.2}
-        />
-      </Text3D>
+      {/* K */}
+      <group position={[-2.5, -0.8, 0]}>
+        <mesh position={[-0.3, 0, 0]}>
+          <boxGeometry args={[0.1, 0.8, 0.3]} />
+          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0, 0.2, 0]} rotation={[0, 0, -0.7]}>
+          <boxGeometry args={[0.5, 0.1, 0.3]} />
+          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0, -0.2, 0]} rotation={[0, 0, 0.7]}>
+          <boxGeometry args={[0.5, 0.1, 0.3]} />
+          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+      </group>
+
+      {/* H */}
+      <group position={[-1, -0.8, 0]}>
+        <mesh position={[-0.3, 0, 0]}>
+          <boxGeometry args={[0.1, 0.8, 0.3]} />
+          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0.3, 0, 0]}>
+          <boxGeometry args={[0.1, 0.8, 0.3]} />
+          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0, 0, 0]}>
+          <boxGeometry args={[0.6, 0.1, 0.3]} />
+          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+      </group>
+
+      {/* A */}
+      <group position={[0.5, -0.8, 0]}>
+        <mesh position={[-0.2, 0, 0]} rotation={[0, 0, 0.3]}>
+          <boxGeometry args={[0.9, 0.1, 0.3]} />
+          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0.2, 0, 0]} rotation={[0, 0, -0.3]}>
+          <boxGeometry args={[0.9, 0.1, 0.3]} />
+          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0, 0, 0]}>
+          <boxGeometry args={[0.4, 0.1, 0.3]} />
+          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+      </group>
+
+      {/* N */}
+      <group position={[2, -0.8, 0]}>
+        <mesh position={[-0.3, 0, 0]}>
+          <boxGeometry args={[0.1, 0.8, 0.3]} />
+          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0.3, 0, 0]}>
+          <boxGeometry args={[0.1, 0.8, 0.3]} />
+          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+        <mesh position={[0, 0, 0]} rotation={[0, 0, 0.5]}>
+          <boxGeometry args={[0.7, 0.1, 0.3]} />
+          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        </mesh>
+      </group>
     </group>
   );
 }
@@ -341,27 +451,6 @@ function TesseractProjection() {
   );
 }
 
-function HolographicText() {
-  return (
-    <Float speed={1} rotationIntensity={0.2} floatIntensity={1}>
-      <Text3D
-        font="/fonts/Space_Grotesk_Bold.json"
-        size={1.5}
-        height={0.1}
-        position={[-3, 0, 0]}
-      >
-        CYBER
-        <meshStandardMaterial
-          color="#00ffff"
-          emissive="#00ffff"
-          emissiveIntensity={0.3}
-          transparent
-          opacity={0.8}
-        />
-      </Text3D>
-    </Float>
-  );
-}
 
 function ParticleField() {
   const particlesRef = useRef<THREE.Points>(null);
