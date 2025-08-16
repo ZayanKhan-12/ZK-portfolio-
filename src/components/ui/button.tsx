@@ -18,8 +18,10 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:shadow-glow-secondary",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-hero text-primary-foreground hover:scale-105 shadow-glow hover:shadow-[0_0_60px_hsl(195_100%_50%_/_0.4)] font-semibold",
-        cosmic: "bg-gradient-card border border-border text-foreground hover:scale-105 hover:shadow-glow backdrop-blur-sm",
+        hero: "bg-gradient-holographic text-primary-foreground hover:scale-105 neon-glow hover:shadow-neon font-semibold cyber-button",
+        cosmic: "hologram-card text-foreground hover:scale-105 backdrop-blur-sm",
+        cyber: "cyber-button bg-gradient-cyber border-primary/30 text-foreground hover:shadow-neon",
+        holographic: "holographic-border bg-gradient-cyber text-foreground hover:shadow-hologram",
       },
       size: {
         default: "h-10 px-4 py-2",
