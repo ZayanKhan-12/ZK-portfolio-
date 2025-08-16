@@ -39,14 +39,14 @@ const Hero = () => {
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <div className="animate-slide-up">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 holographic">
-            CYBER PORTFOLIO
+            COSMIC CREATOR
           </h1>
           <p className="text-xl md:text-2xl text-primary mb-8 max-w-2xl mx-auto neon-glow">
-            DIGITAL ARCHITECT & CODE WIZARD
+            INTERDIMENSIONAL DESIGNER & DREAM ARCHITECT
           </p>
           <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-            Crafting impossibly immersive digital realities with quantum-level precision. 
-            Specializing in neural-interface development, holographic visualizations, and reality-bending code architecture.
+            Weaving impossible experiences from stardust and imagination. 
+            Crafting ethereal interfaces, cosmic visualizations, and transcendent digital realms that blur the boundaries between dreams and reality.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -56,14 +56,14 @@ const Hero = () => {
               onClick={scrollToProjects}
               className="text-lg px-8 py-4"
             >
-              ENTER THE MATRIX
+              EXPLORE THE COSMOS
             </Button>
             <Button 
               variant="cyber" 
               size="lg"
               className="text-lg px-8 py-4"
             >
-              DOWNLOAD NEURAL DATA
+              DOWNLOAD DREAMS
             </Button>
           </div>
         </div>
