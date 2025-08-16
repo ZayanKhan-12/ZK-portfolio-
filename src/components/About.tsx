@@ -1,11 +1,11 @@
 const About = () => {
   const skills = [
-    { name: 'React & TypeScript', level: 95 },
-    { name: 'Three.js & WebGL', level: 88 },
-    { name: 'Node.js & APIs', level: 90 },
-    { name: 'UI/UX Design', level: 85 },
-    { name: 'Creative Coding', level: 92 },
-    { name: 'Database Design', level: 80 },
+    { name: 'Python & CLI Development', level: 95 },
+    { name: 'React & TypeScript', level: 90 },
+    { name: 'DevOps & Automation', level: 88 },
+    { name: 'System Architecture', level: 85 },
+    { name: 'Security & Encryption', level: 87 },
+    { name: 'Package Development', level: 92 },
   ];
 
   return (
@@ -13,10 +13,10 @@ const About = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-hero bg-clip-text text-transparent mb-6">
-            About Me
+            Engineering Excellence
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Passionate about pushing the boundaries of web development and creating experiences that inspire.
+            Building scalable solutions and automation tools that transform development workflows.
           </p>
         </div>
 
@@ -24,19 +24,19 @@ const About = () => {
           {/* Content */}
           <div className="space-y-6">
             <p className="text-lg leading-relaxed">
-              I'm a creative developer with a passion for building innovative digital experiences. 
-              With expertise in modern web technologies and a keen eye for design, I transform 
-              complex ideas into intuitive, engaging interfaces.
+              I'm a full-stack software engineer with a passion for creating tools that solve real-world problems. 
+              My expertise spans from developing secure file-sharing CLI applications to building automated 
+              environment setup solutions that streamline developer workflows.
             </p>
             
             <p className="text-lg leading-relaxed">
-              When I'm not coding, you'll find me exploring new technologies, contributing to 
-              open-source projects, or experimenting with creative coding projects that blend 
-              art and technology.
+              When I'm not architecting scalable systems, you'll find me contributing to open-source projects, 
+              publishing Python packages on PyPI, or exploring cutting-edge technologies that push the boundaries 
+              of what's possible in software development.
             </p>
 
             <div className="pt-6">
-              <h3 className="text-2xl font-semibold mb-6 text-primary">My Expertise</h3>
+              <h3 className="text-2xl font-semibold mb-6 text-primary">Technical Stack</h3>
               <div className="space-y-4">
                 {skills.map((skill, index) => (
                   <div key={skill.name} className="group">
@@ -63,30 +63,30 @@ const About = () => {
           <div className="grid grid-cols-2 gap-6">
             <div className="project-card p-6 text-center group">
               <div className="text-4xl font-bold bg-gradient-hero bg-clip-text text-transparent mb-2">
-                50+
+                2+
               </div>
-              <p className="text-muted-foreground">Projects Completed</p>
+              <p className="text-muted-foreground">PyPI Packages</p>
             </div>
             
             <div className="project-card p-6 text-center group">
               <div className="text-4xl font-bold bg-gradient-hero bg-clip-text text-transparent mb-2">
-                3+
+                2+
               </div>
-              <p className="text-muted-foreground">Years Experience</p>
+              <p className="text-muted-foreground">Years Engineering</p>
             </div>
             
             <div className="project-card p-6 text-center group">
               <div className="text-4xl font-bold bg-gradient-hero bg-clip-text text-transparent mb-2">
-                25+
+                10+
               </div>
-              <p className="text-muted-foreground">Happy Clients</p>
+              <p className="text-muted-foreground">Open Source Contributions</p>
             </div>
             
             <div className="project-card p-6 text-center group">
               <div className="text-4xl font-bold bg-gradient-hero bg-clip-text text-transparent mb-2">
-                100%
+                95%
               </div>
-              <p className="text-muted-foreground">Satisfaction Rate</p>
+              <p className="text-muted-foreground">Code Quality Score</p>
             </div>
           </div>
         </div>
