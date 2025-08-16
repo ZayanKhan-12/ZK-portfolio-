@@ -45,97 +45,150 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-6">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold holographic mb-6">
-            PROJECT ARCHIVES
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+    <section id="projects" className="py-20 px-6 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.1),transparent_70%)]" />
+      
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="text-center mb-20">
+          <div className="inline-block animate-fade-in">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold holographic mb-8 tracking-tight">
+              PROJECT ARCHIVES
+            </h2>
+            <div className="w-24 h-1 bg-gradient-cyber mx-auto mb-8 rounded-full" />
+          </div>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Innovative solutions engineered with cutting-edge technologies and forward-thinking architecture.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Enhanced Project Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8 lg:gap-12 mb-16">
           {projects.map((project, index) => (
             <div 
               key={project.id} 
-              className="hologram-card group scan-lines"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group relative animate-fade-in"
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
-              {/* Project Image */}
-              <div className="relative overflow-hidden rounded-t-lg mb-6">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-cyber opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Holographic Overlay Buttons */}
-                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button variant="cyber" size="sm" asChild>
-                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                      VIEW PACKAGE
-                    </a>
-                  </Button>
-                  <Button variant="holographic" size="sm" asChild>
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      SOURCE CODE
-                    </a>
-                  </Button>
-                </div>
-              </div>
+              {/* Enhanced Card with 3D Effect */}
+              <div className="relative h-full p-1 rounded-2xl bg-gradient-to-br from-primary/20 via-transparent to-primary/10 hover:from-primary/30 hover:to-primary/20 transition-all duration-500">
+                <div className="relative h-full bg-card/80 backdrop-blur-xl rounded-2xl border border-primary/20 hover:border-primary/40 transition-all duration-500 overflow-hidden">
+                  
+                  {/* Project Image with Enhanced Effects */}
+                  <div className="relative overflow-hidden h-64 lg:h-72">
+                    <img
+                      src={project.image}
+                      alt={`${project.title} - Innovative technology project`}
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
+                    />
+                    
+                    {/* Multi-layer Overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-gradient-cyber opacity-0 group-hover:opacity-40 transition-all duration-500" />
+                    
+                    {/* Floating Action Buttons */}
+                    <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                      <Button 
+                        variant="cyber" 
+                        size="lg" 
+                        className="shadow-2xl hover:scale-110 transition-transform duration-300" 
+                        asChild
+                      >
+                        <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                          VIEW PROJECT
+                        </a>
+                      </Button>
+                      <Button 
+                        variant="holographic" 
+                        size="lg" 
+                        className="shadow-2xl hover:scale-110 transition-transform duration-300" 
+                        asChild
+                      >
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          SOURCE
+                        </a>
+                      </Button>
+                    </div>
 
-              <div className="p-6 data-stream">
-                <h3 className="text-xl font-semibold mb-3 text-primary group-hover:text-primary-glow transition-colors neon-glow">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  {project.description}
-                </p>
+                    {/* Corner Accent */}
+                    <div className="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-primary/50 group-hover:border-primary transition-colors duration-500" />
+                  </div>
 
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-xs font-medium bg-gradient-cyber rounded-full border border-primary/50 hover:border-primary transition-colors neon-glow"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                  {/* Enhanced Content Area */}
+                  <div className="p-8">
+                    <div className="mb-6">
+                      <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-500 neon-glow">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed text-lg">
+                        {project.description}
+                      </p>
+                    </div>
 
-                {/* Cyber Action Buttons */}
-                <div className="flex gap-3">
-                  <Button variant="cyber" size="sm" className="flex-1" asChild>
-                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                      VIEW PACKAGE
-                    </a>
-                  </Button>
-                  <Button variant="holographic" size="sm" asChild>
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-                      </svg>
-                    </a>
-                  </Button>
+                    {/* Enhanced Tech Tags */}
+                    <div className="flex flex-wrap gap-3 mb-8">
+                      {project.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tag}
+                          className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 rounded-full hover:border-primary/50 hover:from-primary/20 hover:to-primary/10 transition-all duration-300 neon-glow-subtle animate-fade-in"
+                          style={{ animationDelay: `${index * 0.15 + tagIndex * 0.05}s` }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-4">
+                      <Button 
+                        variant="cyber" 
+                        className="flex-1 hover:scale-105 transition-transform duration-300" 
+                        asChild
+                      >
+                        <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                          LAUNCH PROJECT
+                        </a>
+                      </Button>
+                      <Button 
+                        variant="holographic" 
+                        size="default" 
+                        className="hover:scale-105 transition-transform duration-300" 
+                        asChild
+                      >
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                          </svg>
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Subtle Border Glow */}
+                  <div className="absolute inset-0 rounded-2xl border border-primary/10 group-hover:border-primary/30 transition-colors duration-500 pointer-events-none" />
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Repository Access Portal */}
-        <div className="text-center mt-12">
-          <Button 
-            variant="cyber" 
-            size="lg" 
-            className="neon-glow"
-            onClick={() => window.open('https://github.com/ZayanKhan-12', '_blank')}
-          >
-            VIEW ALL REPOSITORIES
-          </Button>
+        {/* Enhanced CTA Section */}
+        <div className="text-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          <div className="relative inline-block">
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="text-lg px-12 py-6 hover:scale-105 transition-all duration-500 shadow-2xl"
+              onClick={() => window.open('https://github.com/ZayanKhan-12', '_blank')}
+            >
+              EXPLORE ALL REPOSITORIES
+            </Button>
+            <div className="absolute -inset-1 bg-gradient-cyber rounded-lg blur opacity-30 group-hover:opacity-50 transition-opacity duration-500 -z-10" />
+          </div>
+          <p className="text-muted-foreground mt-6 text-lg">
+            Discover more innovative projects and cutting-edge solutions
+          </p>
         </div>
       </div>
     </section>
