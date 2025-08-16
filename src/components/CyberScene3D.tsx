@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Float, Text3D, MeshDistortMaterial } from '@react-three/drei';
+import { OrbitControls, Float } from '@react-three/drei';
 import { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -33,13 +33,14 @@ function FloatingGeometry({ position, color }: { position: [number, number, numb
     <Float speed={3} rotationIntensity={2} floatIntensity={3}>
       <mesh ref={meshRef}>
         <icosahedronGeometry args={[0.6, 2]} />
-        <MeshDistortMaterial
+        <meshStandardMaterial
           color={color}
-          attach="material"
-          distort={0.8}
-          speed={3}
-          roughness={0}
-          metalness={1}
+          transparent
+          opacity={0.8}
+          roughness={0.2}
+          metalness={0.9}
+          emissive={color}
+          emissiveIntensity={0.3}
         />
       </mesh>
     </Float>
