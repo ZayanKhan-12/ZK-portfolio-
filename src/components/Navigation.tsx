@@ -27,7 +27,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="text-2xl font-bold bg-gradient-hero bg-clip-text text-transparent">
-            Portfolio
+            Zayan Khan
           </div>
 
           {/* Navigation Links */}
@@ -61,7 +61,7 @@ const Navigation = () => {
           {/* Social Links */}
           <div className="flex items-center space-x-4">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/ZayanKhan-12"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-muted hover:bg-primary/20 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow"
@@ -71,7 +71,7 @@ const Navigation = () => {
               </svg>
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/zayan-k-2421b9210/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-muted hover:bg-primary/20 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow"
