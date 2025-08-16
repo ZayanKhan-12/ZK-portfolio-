@@ -16,7 +16,7 @@ const About = () => {
             Engineering Excellence
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Building scalable solutions and automation tools that transform development workflows.
+            Computer Science student passionate about software development, backend engineering, and computer vision.
           </p>
         </div>
 
@@ -24,15 +24,15 @@ const About = () => {
           {/* Content */}
           <div className="space-y-6">
             <p className="text-lg leading-relaxed">
-              I'm a full-stack software engineer with a passion for creating tools that solve real-world problems. 
-              My expertise spans from developing secure file-sharing CLI applications to building automated 
-              environment setup solutions that streamline developer workflows.
+              Computer Science student at University of Western Ontario with a passion for software development and backend engineering. 
+              Proficient in Java and Python. A member of the Computer Vision team at Western Engineering Autopilot Club, 
+              specializing in image augmentations to enhance self-driving car perception.
             </p>
             
             <p className="text-lg leading-relaxed">
-              When I'm not architecting scalable systems, you'll find me contributing to open-source projects, 
-              publishing Python packages on PyPI, or exploring cutting-edge technologies that push the boundaries 
-              of what's possible in software development.
+              Beyond academics, I actively engage in hackathons and develop innovative projects that tackle real-world challenges. 
+              Currently building an open-source GitHub repository to visualize and validate any image dataset annotations 
+              for accuracy and preprocessing.
             </p>
 
             <div className="pt-6">
