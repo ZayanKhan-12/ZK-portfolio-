@@ -12,70 +12,90 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden cyber-grid">
-      {/* Matrix Rain Effect */}
-      <div className="matrix-overlay opacity-60" />
+      {/* Enhanced Background Layers */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
       
-      {/* Scan Lines */}
-      <div className="scan-lines absolute inset-0 opacity-70" />
+      {/* Stable Matrix Effect */}
+      <div className="matrix-overlay opacity-40" />
       
-      {/* 3D Scene Background */}
+      {/* Enhanced 3D Scene */}
       <CyberScene3D />
       
-      {/* Background Image with Enhanced Brightness */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-screen"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
+      {/* Interactive Background Pattern */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,255,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(255,0,255,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,0,0.1),transparent_50%)]" />
+      </div>
       
-      {/* Enhanced Lighting Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
-      
-      {/* Floating 3D Elements */}
+      {/* Floating UI Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="floating-3d absolute top-20 left-10 w-16 h-16 bg-gradient-holographic rounded-lg border border-primary/30 neon-glow" />
-        <div className="floating-3d absolute top-40 right-20 w-12 h-12 bg-gradient-cyber rounded-full border border-neon-pink/30 shadow-hologram" />
-        <div className="floating-3d absolute bottom-40 left-1/4 w-20 h-20 bg-gradient-neon rounded-xl border border-accent/30 data-stream" />
-        <div className="floating-3d absolute bottom-20 right-1/3 w-8 h-8 bg-primary/50 rounded-full animate-neon-pulse" />
-        <div className="floating-3d absolute top-1/3 left-1/2 w-6 h-6 bg-neon-green/60 rounded-lg transform -translate-x-1/2" />
+        <div className="floating-3d absolute top-20 left-10 w-20 h-20 bg-gradient-cyber rounded-xl border border-primary/40 shadow-neon animate-float" />
+        <div className="floating-3d absolute top-40 right-20 w-16 h-16 bg-gradient-holographic rounded-full border border-accent/40 shadow-hologram animate-pulse-glow" />
+        <div className="floating-3d absolute bottom-40 left-1/4 w-24 h-24 bg-gradient-neon rounded-2xl border border-neon-pink/40 animate-spin-slow" />
+        <div className="floating-3d absolute bottom-20 right-1/3 w-12 h-12 bg-primary/60 rounded-xl animate-bounce" />
       </div>
 
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-20 text-center px-6 max-w-6xl mx-auto">
         <div className="animate-slide-up">
-          {/* Interactive 4D Name will be rendered in the 3D scene */}
-          <div className="mb-6 h-24" /> {/* Spacer for 3D text */}
-          <p className="text-xl md:text-2xl text-primary mb-8 max-w-2xl mx-auto neon-glow brightness-125">
-            FULL-STACK ARCHITECT & CODE VISIONARY
-          </p>
-          <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed brightness-110">
-            Engineering next-generation solutions with cutting-edge technologies. 
-            Specializing in scalable architectures, automation tools, and developer experience innovations that push the boundaries of what's possible.
-          </p>
+          {/* Name is now rendered in 3D scene */}
+          <div className="mb-8 h-32" />
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              variant="hero" 
-              size="lg" 
-              onClick={scrollToProjects}
-              className="text-lg px-8 py-4"
-            >
-              VIEW PROJECTS
-            </Button>
-            <Button 
-              variant="cyber" 
-              size="lg"
-              className="text-lg px-8 py-4"
-              onClick={() => window.open('https://github.com/ZayanKhan-12', '_blank')}
-            >
-              GITHUB REPOSITORY
-            </Button>
+          {/* Enhanced Subtitle */}
+          <div className="relative mb-8">
+            <p className="text-2xl md:text-4xl font-bold bg-gradient-cyber bg-clip-text text-transparent mb-4 tracking-wide">
+              FULL-STACK ARCHITECT & CODE VISIONARY
+            </p>
+            <div className="absolute -inset-2 bg-gradient-cyber opacity-20 blur-lg rounded-lg" />
+          </div>
+          
+          {/* Enhanced Description */}
+          <div className="relative mb-12">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
+              Engineering next-generation solutions with cutting-edge technologies. 
+              Specializing in scalable architectures, automation tools, and developer experience innovations that push the boundaries of what's possible.
+            </p>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent rounded-lg" />
+          </div>
+          
+          {/* Enhanced Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="relative group">
+              <Button 
+                variant="hero" 
+                size="lg" 
+                onClick={scrollToProjects}
+                className="text-xl px-10 py-6 relative overflow-hidden"
+              >
+                <span className="relative z-10">VIEW PROJECTS</span>
+                <div className="absolute inset-0 bg-gradient-cyber opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
+              </Button>
+              <div className="absolute -inset-1 bg-gradient-cyber opacity-30 blur-lg group-hover:opacity-60 transition-opacity duration-300 rounded-lg" />
+            </div>
+            
+            <div className="relative group">
+              <Button 
+                variant="cyber" 
+                size="lg"
+                className="text-xl px-10 py-6 relative overflow-hidden"
+                onClick={() => window.open('https://github.com/ZayanKhan-12', '_blank')}
+              >
+                <span className="relative z-10">GITHUB REPOSITORY</span>
+                <div className="absolute inset-0 bg-gradient-neon opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
+              </Button>
+              <div className="absolute -inset-1 bg-gradient-neon opacity-30 blur-lg group-hover:opacity-60 transition-opacity duration-300 rounded-lg" />
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Cyber Scroll Indicator */}
+      {/* Enhanced Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center neon-glow">
-          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-data-flow" />
+        <div className="relative">
+          <div className="w-8 h-14 border-2 border-primary rounded-full flex justify-center shadow-neon">
+            <div className="w-2 h-4 bg-primary rounded-full mt-3 animate-data-flow" />
+          </div>
+          <div className="absolute -inset-2 bg-primary/20 blur-lg rounded-full" />
         </div>
       </div>
     </section>

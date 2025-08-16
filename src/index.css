@@ -278,13 +278,35 @@
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-
+  
   .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  .animate-data-flow {
+    animation: data-flow 2s ease-in-out infinite;
+  }
+
+  .animate-neon-pulse {
+    animation: neon-pulse 2s ease-in-out infinite;
   }
 
   .animate-slide-up {
-    animation: slide-up 0.6s ease-out;
+    animation: slide-up 1s ease-out;
+  }
+
+  .animate-bounce {
+    animation: bounce 2s infinite;
+  }
+
+  /* Enhanced 3D Effects */
+  .floating-3d {
+    transform-style: preserve-3d;
+    animation: float-3d 8s ease-in-out infinite;
   }
 }
 
@@ -348,6 +370,17 @@
   }
   50% {
     transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); 
+    opacity: 0.8; 
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.8); 
+    opacity: 1; 
   }
 }
 
