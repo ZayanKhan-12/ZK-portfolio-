@@ -13,19 +13,22 @@ const Hero = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden cyber-grid">
       {/* Matrix Rain Effect */}
-      <div className="matrix-overlay" />
+      <div className="matrix-overlay opacity-60" />
       
       {/* Scan Lines */}
-      <div className="scan-lines absolute inset-0" />
+      <div className="scan-lines absolute inset-0 opacity-70" />
       
       {/* 3D Scene Background */}
       <CyberScene3D />
       
-      {/* Background Image with Holographic Effect */}
+      {/* Background Image with Enhanced Brightness */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 mix-blend-screen"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-screen"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
+      
+      {/* Enhanced Lighting Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
       
       {/* Floating 3D Elements */}
       <div className="absolute inset-0 pointer-events-none">
@@ -38,13 +41,12 @@ const Hero = () => {
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <div className="animate-slide-up">
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 holographic">
-            ZAYAN KHAN
-          </h1>
-          <p className="text-xl md:text-2xl text-primary mb-8 max-w-2xl mx-auto neon-glow">
+          {/* Interactive 4D Name will be rendered in the 3D scene */}
+          <div className="mb-6 h-24" /> {/* Spacer for 3D text */}
+          <p className="text-xl md:text-2xl text-primary mb-8 max-w-2xl mx-auto neon-glow brightness-125">
             FULL-STACK ARCHITECT & CODE VISIONARY
           </p>
-          <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed brightness-110">
             Engineering next-generation solutions with cutting-edge technologies. 
             Specializing in scalable architectures, automation tools, and developer experience innovations that push the boundaries of what's possible.
           </p>

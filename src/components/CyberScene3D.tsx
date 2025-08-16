@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float, Text3D, MeshDistortMaterial } from '@react-three/drei';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -46,6 +46,93 @@ function FloatingGeometry({ position, color }: { position: [number, number, numb
   );
 }
 
+function Interactive4DName() {
+  const groupRef = useRef<THREE.Group>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  
+  useFrame((state) => {
+    if (groupRef.current && !isDragging) {
+      const time = state.clock.elapsedTime;
+      // Auto-rotation when not being manipulated
+      groupRef.current.rotation.x = rotation.x + Math.sin(time * 0.3) * 0.1;
+      groupRef.current.rotation.y = rotation.y + time * 0.1;
+      
+      // 4D scale breathing effect
+      const scale = 1 + Math.sin(time * 2) * 0.1;
+      groupRef.current.scale.setScalar(scale);
+      
+      // Subtle 4D position drift
+      groupRef.current.position.y = Math.sin(time * 0.5) * 0.2;
+    }
+  });
+
+  const handlePointerDown = (event: any) => {
+    setIsDragging(true);
+    event.stopPropagation();
+  };
+
+  const handlePointerUp = () => {
+    setIsDragging(false);
+  };
+
+  const handlePointerMove = (event: any) => {
+    if (isDragging) {
+      setRotation({
+        x: rotation.x + event.movementY * 0.01,
+        y: rotation.y + event.movementX * 0.01,
+      });
+    }
+  };
+
+  return (
+    <group
+      ref={groupRef}
+      position={[0, 3, 0]}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
+      onPointerMove={handlePointerMove}
+    >
+      {/* ZAYAN */}
+      <Text3D
+        font="/fonts/Space_Grotesk_Bold.json"
+        size={1.2}
+        height={0.3}
+        position={[-3, 0.5, 0]}
+        curveSegments={12}
+      >
+        ZAYAN
+        <meshStandardMaterial
+          color="#00ffff"
+          emissive="#00ffff"
+          emissiveIntensity={0.5}
+          metalness={0.8}
+          roughness={0.2}
+        />
+      </Text3D>
+      
+      {/* KHAN */}
+      <Text3D
+        font="/fonts/Space_Grotesk_Bold.json"
+        size={1.2}
+        height={0.3}
+        position={[-2.5, -0.8, 0]}
+        curveSegments={12}
+      >
+        KHAN
+        <meshStandardMaterial
+          color="#ff00ff"
+          emissive="#ff00ff"
+          emissiveIntensity={0.5}
+          metalness={0.8}
+          roughness={0.2}
+        />
+      </Text3D>
+    </group>
+  );
+}
+      
+      // Extreme 4D scale morphing
 function MorphingCube({ position }: { position: [number, number, number] }) {
   const meshRef = useRef<THREE.Mesh>(null);
   
@@ -336,13 +423,17 @@ function ParticleField() {
 
 const CyberScene3D = () => {
   return (
-    <div className="absolute inset-0 opacity-50">
+    <div className="absolute inset-0 opacity-70">
       <Canvas camera={{ position: [0, 0, 15], fov: 65 }}>
-        <ambientLight intensity={0.4} />
-        <pointLight position={[12, 12, 12]} intensity={2} color="#00ffff" />
-        <pointLight position={[-12, -12, -12]} intensity={1.5} color="#ff00ff" />
-        <pointLight position={[0, 20, 8]} intensity={1.2} color="#ffff00" />
-        <pointLight position={[8, -8, 12]} intensity={1} color="#00ff00" />
+        <ambientLight intensity={0.6} />
+        <pointLight position={[12, 12, 12]} intensity={2.5} color="#00ffff" />
+        <pointLight position={[-12, -12, -12]} intensity={2} color="#ff00ff" />
+        <pointLight position={[0, 20, 8]} intensity={1.8} color="#ffff00" />
+        <pointLight position={[8, -8, 12]} intensity={1.5} color="#00ff00" />
+        <directionalLight position={[0, 10, 5]} intensity={1} color="#ffffff" />
+        
+        {/* Interactive 4D Name */}
+        <Interactive4DName />
         
         {/* Enhanced floating geometries with extreme 4D animations */}
         <FloatingGeometry position={[-4, 3, 0]} color="#00ffff" />
@@ -371,10 +462,11 @@ const CyberScene3D = () => {
         <ParticleField />
         
         <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          autoRotate
-          autoRotateSpeed={0.2}
+          enableZoom={true}
+          enablePan={true}
+          autoRotate={false}
+          maxDistance={25}
+          minDistance={8}
         />
       </Canvas>
     </div>
