@@ -38,8 +38,8 @@ const Hero = () => {
 
       <div className="relative z-20 text-center px-6 max-w-6xl mx-auto">
         <div className="animate-slide-up">
-          {/* Name is now rendered in 3D scene */}
-          <div className="mb-8 h-32" />
+          {/* Name is now rendered in 3D scene - MUCH MORE SPACE */}
+          <div className="mb-8 h-40" />
           
           {/* Enhanced Subtitle */}
           <div className="relative mb-8">

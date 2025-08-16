@@ -54,17 +54,16 @@ function MegaInteractive4DName() {
   useFrame((state) => {
     if (groupRef.current && !isDragging) {
       const time = state.clock.elapsedTime;
-      // Gentle auto-rotation when not being manipulated
-      groupRef.current.rotation.x = rotation.x + Math.sin(time * 0.2) * 0.05;
-      groupRef.current.rotation.y = rotation.y + time * 0.05;
+      // Very gentle auto-rotation when not being manipulated
+      groupRef.current.rotation.x = rotation.x + Math.sin(time * 0.1) * 0.02;
+      groupRef.current.rotation.y = rotation.y + time * 0.02;
       
-      // Stable scale with subtle breathing - NO BRIGHTNESS FLUCTUATION
-      const baseScale = isHovered ? 1.15 : 1;
-      const breathe = Math.sin(time * 1.2) * 0.03; // Very subtle breathing
-      groupRef.current.scale.setScalar(baseScale + breathe);
+      // COMPLETELY STABLE SCALE - NO BREATHING OR PULSING
+      const baseScale = isHovered ? 1.1 : 1;
+      groupRef.current.scale.setScalar(baseScale);
       
-      // Gentle vertical drift
-      groupRef.current.position.y = Math.sin(time * 0.3) * 0.1;
+      // Very gentle vertical drift
+      groupRef.current.position.y = Math.sin(time * 0.2) * 0.05;
     }
   });
 
@@ -80,8 +79,8 @@ function MegaInteractive4DName() {
   const handlePointerMove = (event: any) => {
     if (isDragging && event.movementX && event.movementY) {
       setRotation({
-        x: rotation.x + event.movementY * 0.005,
-        y: rotation.y + event.movementX * 0.005,
+        x: rotation.x + event.movementY * 0.003,
+        y: rotation.y + event.movementX * 0.003,
       });
     }
   };
@@ -96,179 +95,179 @@ function MegaInteractive4DName() {
     document.body.style.cursor = 'default';
   };
 
-  // STABLE brightness materials - NO FLUCTUATION
+  // MAXIMUM BRIGHTNESS materials - COMPLETELY STABLE
   const zayanMaterial = {
     color: "#00ffff",
     emissive: "#00ffff",
-    emissiveIntensity: 0.6, // FIXED intensity
+    emissiveIntensity: 1.2, // MAXIMUM brightness
     metalness: 0.9,
-    roughness: 0.05,
-    transparent: true,
-    opacity: 0.95
+    roughness: 0.0,
+    transparent: false,
+    opacity: 1.0
   };
 
   const khanMaterial = {
     color: "#ff00ff",
     emissive: "#ff00ff", 
-    emissiveIntensity: 0.6, // FIXED intensity
+    emissiveIntensity: 1.2, // MAXIMUM brightness
     metalness: 0.9,
-    roughness: 0.05,
-    transparent: true,
-    opacity: 0.95
+    roughness: 0.0,
+    transparent: false,
+    opacity: 1.0
   };
 
-  // MASSIVE 3D text using larger geometric shapes
+  // MASSIVE 3D text positioned for maximum visibility
   return (
     <group
       ref={groupRef}
-      position={[0, 1, -1]}
+      position={[0, 2, 2]} // Moved closer to camera
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
       onPointerMove={handlePointerMove}
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
     >
-      {/* Z - MASSIVE SIZE */}
-      <group position={[-6, 1.2, 0]}>
-        <mesh position={[0, 0.8, 0]}>
-          <boxGeometry args={[2, 0.25, 0.6]} />
+      {/* Z - MASSIVE AND BRIGHT */}
+      <group position={[-7, 1.5, 0]}>
+        <mesh position={[0, 1, 0]}>
+          <boxGeometry args={[2.5, 0.3, 0.8]} />
           <meshStandardMaterial {...zayanMaterial} />
         </mesh>
         <mesh position={[0, 0, 0]} rotation={[0, 0, -0.4]}>
-          <boxGeometry args={[1.8, 0.25, 0.6]} />
+          <boxGeometry args={[2.2, 0.3, 0.8]} />
           <meshStandardMaterial {...zayanMaterial} />
         </mesh>
-        <mesh position={[0, -0.8, 0]}>
-          <boxGeometry args={[2, 0.25, 0.6]} />
-          <meshStandardMaterial {...zayanMaterial} />
-        </mesh>
-      </group>
-
-      {/* A - MASSIVE SIZE */}
-      <group position={[-3.5, 1.2, 0]}>
-        <mesh position={[-0.5, 0, 0]} rotation={[0, 0, 0.25]}>
-          <boxGeometry args={[2, 0.25, 0.6]} />
-          <meshStandardMaterial {...zayanMaterial} />
-        </mesh>
-        <mesh position={[0.5, 0, 0]} rotation={[0, 0, -0.25]}>
-          <boxGeometry args={[2, 0.25, 0.6]} />
-          <meshStandardMaterial {...zayanMaterial} />
-        </mesh>
-        <mesh position={[0, 0.2, 0]}>
-          <boxGeometry args={[1, 0.25, 0.6]} />
+        <mesh position={[0, -1, 0]}>
+          <boxGeometry args={[2.5, 0.3, 0.8]} />
           <meshStandardMaterial {...zayanMaterial} />
         </mesh>
       </group>
 
-      {/* Y - MASSIVE SIZE */}
-      <group position={[-1, 1.2, 0]}>
-        <mesh position={[-0.4, 0.4, 0]} rotation={[0, 0, 0.4]}>
-          <boxGeometry args={[1.2, 0.25, 0.6]} />
+      {/* A - MASSIVE AND BRIGHT */}
+      <group position={[-4, 1.5, 0]}>
+        <mesh position={[-0.6, 0, 0]} rotation={[0, 0, 0.25]}>
+          <boxGeometry args={[2.5, 0.3, 0.8]} />
           <meshStandardMaterial {...zayanMaterial} />
         </mesh>
-        <mesh position={[0.4, 0.4, 0]} rotation={[0, 0, -0.4]}>
-          <boxGeometry args={[1.2, 0.25, 0.6]} />
+        <mesh position={[0.6, 0, 0]} rotation={[0, 0, -0.25]}>
+          <boxGeometry args={[2.5, 0.3, 0.8]} />
           <meshStandardMaterial {...zayanMaterial} />
         </mesh>
-        <mesh position={[0, -0.4, 0]}>
-          <boxGeometry args={[0.25, 0.8, 0.6]} />
-          <meshStandardMaterial {...zayanMaterial} />
-        </mesh>
-      </group>
-
-      {/* A - MASSIVE SIZE */}
-      <group position={[1.5, 1.2, 0]}>
-        <mesh position={[-0.5, 0, 0]} rotation={[0, 0, 0.25]}>
-          <boxGeometry args={[2, 0.25, 0.6]} />
-          <meshStandardMaterial {...zayanMaterial} />
-        </mesh>
-        <mesh position={[0.5, 0, 0]} rotation={[0, 0, -0.25]}>
-          <boxGeometry args={[2, 0.25, 0.6]} />
-          <meshStandardMaterial {...zayanMaterial} />
-        </mesh>
-        <mesh position={[0, 0.2, 0]}>
-          <boxGeometry args={[1, 0.25, 0.6]} />
+        <mesh position={[0, 0.3, 0]}>
+          <boxGeometry args={[1.2, 0.3, 0.8]} />
           <meshStandardMaterial {...zayanMaterial} />
         </mesh>
       </group>
 
-      {/* N - MASSIVE SIZE */}
-      <group position={[4, 1.2, 0]}>
-        <mesh position={[-0.6, 0, 0]}>
-          <boxGeometry args={[0.25, 1.6, 0.6]} />
+      {/* Y - MASSIVE AND BRIGHT */}
+      <group position={[-1, 1.5, 0]}>
+        <mesh position={[-0.5, 0.5, 0]} rotation={[0, 0, 0.4]}>
+          <boxGeometry args={[1.5, 0.3, 0.8]} />
           <meshStandardMaterial {...zayanMaterial} />
         </mesh>
-        <mesh position={[0.6, 0, 0]}>
-          <boxGeometry args={[0.25, 1.6, 0.6]} />
+        <mesh position={[0.5, 0.5, 0]} rotation={[0, 0, -0.4]}>
+          <boxGeometry args={[1.5, 0.3, 0.8]} />
+          <meshStandardMaterial {...zayanMaterial} />
+        </mesh>
+        <mesh position={[0, -0.5, 0]}>
+          <boxGeometry args={[0.3, 1, 0.8]} />
+          <meshStandardMaterial {...zayanMaterial} />
+        </mesh>
+      </group>
+
+      {/* A - MASSIVE AND BRIGHT */}
+      <group position={[2, 1.5, 0]}>
+        <mesh position={[-0.6, 0, 0]} rotation={[0, 0, 0.25]}>
+          <boxGeometry args={[2.5, 0.3, 0.8]} />
+          <meshStandardMaterial {...zayanMaterial} />
+        </mesh>
+        <mesh position={[0.6, 0, 0]} rotation={[0, 0, -0.25]}>
+          <boxGeometry args={[2.5, 0.3, 0.8]} />
+          <meshStandardMaterial {...zayanMaterial} />
+        </mesh>
+        <mesh position={[0, 0.3, 0]}>
+          <boxGeometry args={[1.2, 0.3, 0.8]} />
+          <meshStandardMaterial {...zayanMaterial} />
+        </mesh>
+      </group>
+
+      {/* N - MASSIVE AND BRIGHT */}
+      <group position={[5, 1.5, 0]}>
+        <mesh position={[-0.7, 0, 0]}>
+          <boxGeometry args={[0.3, 2, 0.8]} />
+          <meshStandardMaterial {...zayanMaterial} />
+        </mesh>
+        <mesh position={[0.7, 0, 0]}>
+          <boxGeometry args={[0.3, 2, 0.8]} />
           <meshStandardMaterial {...zayanMaterial} />
         </mesh>
         <mesh position={[0, 0, 0]} rotation={[0, 0, 0.4]}>
-          <boxGeometry args={[1.5, 0.25, 0.6]} />
+          <boxGeometry args={[1.8, 0.3, 0.8]} />
           <meshStandardMaterial {...zayanMaterial} />
         </mesh>
       </group>
 
-      {/* KHAN - MASSIVE SIZE */}
+      {/* KHAN - MASSIVE AND BRIGHT */}
       {/* K */}
-      <group position={[-3.5, -0.8, 0]}>
-        <mesh position={[-0.6, 0, 0]}>
-          <boxGeometry args={[0.25, 1.6, 0.6]} />
+      <group position={[-4, -0.5, 0]}>
+        <mesh position={[-0.7, 0, 0]}>
+          <boxGeometry args={[0.3, 2, 0.8]} />
           <meshStandardMaterial {...khanMaterial} />
         </mesh>
-        <mesh position={[0.2, 0.4, 0]} rotation={[0, 0, -0.6]}>
-          <boxGeometry args={[1.2, 0.25, 0.6]} />
+        <mesh position={[0.3, 0.5, 0]} rotation={[0, 0, -0.6]}>
+          <boxGeometry args={[1.5, 0.3, 0.8]} />
           <meshStandardMaterial {...khanMaterial} />
         </mesh>
-        <mesh position={[0.2, -0.4, 0]} rotation={[0, 0, 0.6]}>
-          <boxGeometry args={[1.2, 0.25, 0.6]} />
+        <mesh position={[0.3, -0.5, 0]} rotation={[0, 0, 0.6]}>
+          <boxGeometry args={[1.5, 0.3, 0.8]} />
           <meshStandardMaterial {...khanMaterial} />
         </mesh>
       </group>
 
       {/* H */}
-      <group position={[-1, -0.8, 0]}>
-        <mesh position={[-0.6, 0, 0]}>
-          <boxGeometry args={[0.25, 1.6, 0.6]} />
+      <group position={[-1, -0.5, 0]}>
+        <mesh position={[-0.7, 0, 0]}>
+          <boxGeometry args={[0.3, 2, 0.8]} />
           <meshStandardMaterial {...khanMaterial} />
         </mesh>
-        <mesh position={[0.6, 0, 0]}>
-          <boxGeometry args={[0.25, 1.6, 0.6]} />
+        <mesh position={[0.7, 0, 0]}>
+          <boxGeometry args={[0.3, 2, 0.8]} />
           <meshStandardMaterial {...khanMaterial} />
         </mesh>
         <mesh position={[0, 0, 0]}>
-          <boxGeometry args={[1.2, 0.25, 0.6]} />
+          <boxGeometry args={[1.4, 0.3, 0.8]} />
           <meshStandardMaterial {...khanMaterial} />
         </mesh>
       </group>
 
       {/* A */}
-      <group position={[1.5, -0.8, 0]}>
-        <mesh position={[-0.5, 0, 0]} rotation={[0, 0, 0.25]}>
-          <boxGeometry args={[2, 0.25, 0.6]} />
+      <group position={[2, -0.5, 0]}>
+        <mesh position={[-0.6, 0, 0]} rotation={[0, 0, 0.25]}>
+          <boxGeometry args={[2.5, 0.3, 0.8]} />
           <meshStandardMaterial {...khanMaterial} />
         </mesh>
-        <mesh position={[0.5, 0, 0]} rotation={[0, 0, -0.25]}>
-          <boxGeometry args={[2, 0.25, 0.6]} />
+        <mesh position={[0.6, 0, 0]} rotation={[0, 0, -0.25]}>
+          <boxGeometry args={[2.5, 0.3, 0.8]} />
           <meshStandardMaterial {...khanMaterial} />
         </mesh>
-        <mesh position={[0, 0.2, 0]}>
-          <boxGeometry args={[1, 0.25, 0.6]} />
+        <mesh position={[0, 0.3, 0]}>
+          <boxGeometry args={[1.2, 0.3, 0.8]} />
           <meshStandardMaterial {...khanMaterial} />
         </mesh>
       </group>
 
       {/* N */}
-      <group position={[4, -0.8, 0]}>
-        <mesh position={[-0.6, 0, 0]}>
-          <boxGeometry args={[0.25, 1.6, 0.6]} />
+      <group position={[5, -0.5, 0]}>
+        <mesh position={[-0.7, 0, 0]}>
+          <boxGeometry args={[0.3, 2, 0.8]} />
           <meshStandardMaterial {...khanMaterial} />
         </mesh>
-        <mesh position={[0.6, 0, 0]}>
-          <boxGeometry args={[0.25, 1.6, 0.6]} />
+        <mesh position={[0.7, 0, 0]}>
+          <boxGeometry args={[0.3, 2, 0.8]} />
           <meshStandardMaterial {...khanMaterial} />
         </mesh>
         <mesh position={[0, 0, 0]} rotation={[0, 0, 0.4]}>
-          <boxGeometry args={[1.5, 0.25, 0.6]} />
+          <boxGeometry args={[1.8, 0.3, 0.8]} />
           <meshStandardMaterial {...khanMaterial} />
         </mesh>
       </group>
@@ -546,56 +545,56 @@ function ParticleField() {
 
 const CyberScene3D = () => {
   return (
-    <div className="absolute inset-0 opacity-80">
+    <div className="absolute inset-0 opacity-90">
       <Canvas 
-        camera={{ position: [0, 0, 18], fov: 70 }}
+        camera={{ position: [0, 0, 16], fov: 75 }}
         gl={{ antialias: true, alpha: true }}
         dpr={Math.min(window.devicePixelRatio, 2)}
       >
-        {/* Enhanced Lighting System */}
-        <ambientLight intensity={0.4} />
-        <directionalLight position={[10, 10, 5]} intensity={1} color="#ffffff" />
-        <pointLight position={[10, 10, 10]} intensity={1.2} color="#00ffff" />
-        <pointLight position={[-10, -10, -10]} intensity={1} color="#ff00ff" />
-        <pointLight position={[0, 15, 5]} intensity={0.8} color="#ffff00" />
+        {/* MAXIMUM Lighting System for Readability */}
+        <ambientLight intensity={0.8} />
+        <directionalLight position={[0, 0, 10]} intensity={2} color="#ffffff" />
+        <directionalLight position={[10, 10, 5]} intensity={1.5} color="#ffffff" />
+        <pointLight position={[0, 0, 8]} intensity={3} color="#ffffff" />
+        <pointLight position={[10, 10, 10]} intensity={2} color="#00ffff" />
+        <pointLight position={[-10, -10, -10]} intensity={2} color="#ff00ff" />
         <spotLight 
-          position={[0, 20, 0]} 
-          angle={0.3} 
-          penumbra={1} 
-          intensity={1.5} 
+          position={[0, 0, 15]} 
+          angle={0.5} 
+          penumbra={0.5} 
+          intensity={3} 
           color="#ffffff"
           target-position={[0, 0, 0]}
         />
         
-        {/* MEGA Interactive 4D Name - Main Focus */}
+        {/* MEGA Interactive 4D Name - Maximum Visibility */}
         <MegaInteractive4DName />
         
-        {/* Optimized floating geometries - fewer but more impactful */}
-        <FloatingGeometry position={[-8, 4, -5]} color="#00ffff" size={0.8} />
-        <FloatingGeometry position={[8, -3, -6]} color="#ff00ff" size={0.7} />
-        <FloatingGeometry position={[-6, -4, -4]} color="#ffff00" size={0.6} />
-        <FloatingGeometry position={[7, 5, -7]} color="#00ff00" size={0.9} />
-        <FloatingGeometry position={[0, -6, -5]} color="#ff6b6b" size={0.5} />
+        {/* Reduced background elements for better name visibility */}
+        <FloatingGeometry position={[-12, 6, -8]} color="#00ffff" size={0.6} />
+        <FloatingGeometry position={[12, -6, -8]} color="#ff00ff" size={0.6} />
+        <FloatingGeometry position={[-10, -6, -8]} color="#ffff00" size={0.5} />
+        <FloatingGeometry position={[10, 6, -8]} color="#00ff00" size={0.5} />
         
-        {/* Reduced number of complex objects for better performance */}
-        <MorphingCube position={[12, 2, -8]} />
-        <MorphingCube position={[-12, -3, -9]} />
+        {/* Background geometric elements */}
+        <MorphingCube position={[15, 3, -12]} />
+        <MorphingCube position={[-15, -4, -12]} />
         
-        <HyperSphere position={[15, -2, -10]} />
-        <HyperSphere position={[-15, 4, -8]} />
+        <HyperSphere position={[18, -3, -15]} />
+        <HyperSphere position={[-18, 5, -15]} />
         
         <HypercubeWireframe />
         <TesseractProjection />
         
-        {/* Enhanced particle field */}
+        {/* Subtle particle field in background */}
         <ParticleField />
         
         <OrbitControls
           enableZoom={true}
           enablePan={true}
           autoRotate={false}
-          maxDistance={30}
-          minDistance={10}
+          maxDistance={25}
+          minDistance={12}
           enableDamping={true}
           dampingFactor={0.05}
         />
