@@ -6,11 +6,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="text-2xl font-bold bg-gradient-hero bg-clip-text text-transparent">
-              Portfolio
+              Zayan Khan
             </div>
             <p className="text-muted-foreground">
-              Creating digital experiences that inspire and engage. 
-              Let's build something amazing together.
+              Full-Stack Architect crafting next-generation solutions with cutting-edge technologies. 
+              Building the future, one line of code at a time.
             </p>
           </div>
 
@@ -38,7 +38,7 @@ const Footer = () => {
             <h3 className="font-semibold text-primary">Connect</h3>
             <div className="flex gap-4">
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/ZayanKhan-12"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center hover:bg-primary/20 transition-all duration-300 hover:scale-110 hover:shadow-glow group"
@@ -48,7 +48,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/zayan-k-2421b9210/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center hover:bg-primary/20 transition-all duration-300 hover:scale-110 hover:shadow-glow group"
@@ -77,7 +77,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 Your Name. All rights reserved.
+            © 2024 Zayan Khan. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">

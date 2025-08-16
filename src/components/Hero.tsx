@@ -39,14 +39,14 @@ const Hero = () => {
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <div className="animate-slide-up">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 holographic">
-            COSMIC CREATOR
+            ZAYAN KHAN
           </h1>
           <p className="text-xl md:text-2xl text-primary mb-8 max-w-2xl mx-auto neon-glow">
-            INTERDIMENSIONAL DESIGNER & DREAM ARCHITECT
+            FULL-STACK ARCHITECT & CODE VISIONARY
           </p>
           <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-            Weaving impossible experiences from stardust and imagination. 
-            Crafting ethereal interfaces, cosmic visualizations, and transcendent digital realms that blur the boundaries between dreams and reality.
+            Engineering next-generation solutions with cutting-edge technologies. 
+            Specializing in scalable architectures, automation tools, and developer experience innovations that push the boundaries of what's possible.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -56,14 +56,15 @@ const Hero = () => {
               onClick={scrollToProjects}
               className="text-lg px-8 py-4"
             >
-              EXPLORE THE COSMOS
+              VIEW PROJECTS
             </Button>
             <Button 
               variant="cyber" 
               size="lg"
               className="text-lg px-8 py-4"
+              onClick={() => window.open('https://github.com/ZayanKhan-12', '_blank')}
             >
-              DOWNLOAD DREAMS
+              GITHUB REPOSITORY
             </Button>
           </div>
         </div>

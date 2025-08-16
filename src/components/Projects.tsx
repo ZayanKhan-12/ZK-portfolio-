@@ -7,30 +7,30 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'NEURAL INTERFACE PORTAL',
-      description: 'Quantum-encrypted portfolio interface with bio-neural authentication, real-time consciousness streaming, and adaptive holographic UI that responds to user brain patterns.',
+      title: 'DEVSHARE',
+      description: 'Advanced peer-to-peer file transfer CLI with military-grade encryption. Revolutionizing secure data sharing with quantum-resistant protocols and seamless integration.',
       image: project1,
-      tags: ['Neural React', 'Quantum.js', 'BioScript', 'HoloCSSR'],
-      demoUrl: '#',
-      githubUrl: '#',
+      tags: ['Python', 'Encryption', 'P2P', 'CLI'],
+      demoUrl: 'https://pypi.org/project/devshare/',
+      githubUrl: 'https://github.com/ZayanKhan-12',
     },
     {
       id: 2,
-      title: 'MATRIX DATA NEXUS',
-      description: 'Multi-dimensional analytics nexus with quantum data visualization, predictive AI algorithms, and real-time matrix manipulation through advanced holographic interfaces.',
+      title: 'ONECLICKSETUP',
+      description: 'Revolutionary environment automation engine. One command deploys entire development ecosystems with AI-powered dependency resolution and configuration optimization.',
       image: project2,
-      tags: ['Vue.Quantum', 'Dimension3D.js', 'NeuroNode', 'CyberDB'],
-      demoUrl: '#',
-      githubUrl: '#',
+      tags: ['DevOps', 'Automation', 'Python', 'CLI'],
+      demoUrl: 'https://pypi.org/project/oneclicksetup/',
+      githubUrl: 'https://github.com/ZayanKhan-12',
     },
     {
       id: 3,
-      title: 'CYBERNETIC COMMERCE ENGINE',
-      description: 'Next-gen e-commerce platform with blockchain payment processing, AI-driven user prediction, and immersive VR shopping experiences powered by neural networks.',
+      title: 'NEURAL ARCHITECT',
+      description: 'Next-generation system design framework with adaptive architecture patterns. Self-optimizing codebases that evolve with your application requirements.',
       image: project3,
-      tags: ['React.AI', 'CyberExpress', 'QuantumSQL', 'NeuralPay'],
+      tags: ['Architecture', 'AI Systems', 'Scalability', 'Framework'],
       demoUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/ZayanKhan-12',
     },
   ];
 
@@ -39,10 +39,10 @@ const Projects = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold holographic mb-6">
-            NEURAL PROJECT ARCHIVES
+            PROJECT ARCHIVES
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Quantum-encrypted showcase of reality-bending digital constructs and consciousness-altering code architectures.
+            Innovative solutions engineered with cutting-edge technologies and forward-thinking architecture.
           </p>
         </div>
 
@@ -66,12 +66,12 @@ const Projects = () => {
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Button variant="cyber" size="sm" asChild>
                     <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                      NEURAL LINK
+                      VIEW PACKAGE
                     </a>
                   </Button>
                   <Button variant="holographic" size="sm" asChild>
                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      SOURCE MATRIX
+                      SOURCE CODE
                     </a>
                   </Button>
                 </div>
@@ -100,7 +100,7 @@ const Projects = () => {
                 <div className="flex gap-3">
                   <Button variant="cyber" size="sm" className="flex-1" asChild>
                     <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                      ACCESS PROJECT
+                      VIEW PACKAGE
                     </a>
                   </Button>
                   <Button variant="holographic" size="sm" asChild>
@@ -116,10 +116,15 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Neural Network Access Portal */}
+        {/* Repository Access Portal */}
         <div className="text-center mt-12">
-          <Button variant="cyber" size="lg" className="neon-glow">
-            ACCESS NEURAL NETWORK
+          <Button 
+            variant="cyber" 
+            size="lg" 
+            className="neon-glow"
+            onClick={() => window.open('https://github.com/ZayanKhan-12', '_blank')}
+          >
+            VIEW ALL REPOSITORIES
           </Button>
         </div>
       </div>
