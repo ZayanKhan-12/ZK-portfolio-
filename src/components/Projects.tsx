@@ -25,12 +25,12 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'NEURAL ARCHITECT',
-      description: 'Next-generation system design framework with adaptive architecture patterns. Self-optimizing codebases that evolve with your application requirements.',
+      title: 'DEVSHARE WEB',
+      description: 'Interactive web platform for DevShare file transfer tool. Real-time file sharing with secure P2P connections, drag-and-drop interface, and encrypted transfers.',
       image: project3,
-      tags: ['Architecture', 'AI Systems', 'Scalability', 'Framework'],
-      demoUrl: '#',
-      githubUrl: 'https://github.com/ZayanKhan-12',
+      tags: ['React', 'Web App', 'File Transfer', 'UI/UX'],
+      demoUrl: 'https://zayankhan-12.github.io/DevShare/#/',
+      githubUrl: 'https://github.com/ZayanKhan-12/DevShare',
     },
   ];
 
