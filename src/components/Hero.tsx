@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import heroBg from '@/assets/hero-bg.jpg';
 
 const Hero = () => {
+  console.log('Hero component rendering...', { heroBg });
   const scrollToProjects = () => {
     const element = document.getElementById('projects');
     if (element) {
