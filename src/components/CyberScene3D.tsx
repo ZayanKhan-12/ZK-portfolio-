@@ -50,6 +50,7 @@ function FloatingGeometry({ position, color }: { position: [number, number, numb
 function Interactive4DName() {
   const groupRef = useRef<THREE.Group>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   
   useFrame((state) => {
@@ -60,7 +61,8 @@ function Interactive4DName() {
       groupRef.current.rotation.y = rotation.y + time * 0.1;
       
       // 4D scale breathing effect
-      const scale = 1 + Math.sin(time * 2) * 0.1;
+      const baseScale = isHovered ? 1.2 : 1;
+      const scale = baseScale + Math.sin(time * 2) * 0.1;
       groupRef.current.scale.setScalar(scale);
       
       // Subtle 4D position drift
@@ -86,157 +88,188 @@ function Interactive4DName() {
     }
   };
 
+  const handlePointerEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handlePointerLeave = () => {
+    setIsHovered(false);
+  };
+
+  // Enhanced material properties for better visibility
+  const zayanMaterial = {
+    color: "#00ffff",
+    emissive: "#00ffff",
+    emissiveIntensity: isHovered ? 0.8 : 0.5,
+    metalness: 0.8,
+    roughness: 0.1,
+    transparent: true,
+    opacity: 0.9
+  };
+
+  const khanMaterial = {
+    color: "#ff00ff",
+    emissive: "#ff00ff", 
+    emissiveIntensity: isHovered ? 0.8 : 0.5,
+    metalness: 0.8,
+    roughness: 0.1,
+    transparent: true,
+    opacity: 0.9
+  };
+
   // Create 3D text using geometric shapes arranged as letters
   return (
     <group
       ref={groupRef}
-      position={[0, 3, 0]}
+      position={[0, 2, -2]}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
       onPointerMove={handlePointerMove}
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
     >
       {/* Z */}
-      <group position={[-4, 0.5, 0]}>
-        <mesh position={[0, 0.4, 0]}>
-          <boxGeometry args={[0.8, 0.1, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+      <group position={[-4, 0.8, 0]}>
+        <mesh position={[0, 0.6, 0]}>
+          <boxGeometry args={[1.2, 0.15, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
         <mesh position={[0, 0, 0]} rotation={[0, 0, -0.5]}>
-          <boxGeometry args={[0.6, 0.1, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+          <boxGeometry args={[1, 0.15, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
-        <mesh position={[0, -0.4, 0]}>
-          <boxGeometry args={[0.8, 0.1, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        <mesh position={[0, -0.6, 0]}>
+          <boxGeometry args={[1.2, 0.15, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
       </group>
 
       {/* A */}
-      <group position={[-2.5, 0.5, 0]}>
-        <mesh position={[-0.2, 0, 0]} rotation={[0, 0, 0.3]}>
-          <boxGeometry args={[0.9, 0.1, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+      <group position={[-2.5, 0.8, 0]}>
+        <mesh position={[-0.3, 0, 0]} rotation={[0, 0, 0.3]}>
+          <boxGeometry args={[1.3, 0.15, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
-        <mesh position={[0.2, 0, 0]} rotation={[0, 0, -0.3]}>
-          <boxGeometry args={[0.9, 0.1, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        <mesh position={[0.3, 0, 0]} rotation={[0, 0, -0.3]}>
+          <boxGeometry args={[1.3, 0.15, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
-        <mesh position={[0, 0, 0]}>
-          <boxGeometry args={[0.4, 0.1, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        <mesh position={[0, 0.1, 0]}>
+          <boxGeometry args={[0.6, 0.15, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
       </group>
 
       {/* Y */}
-      <group position={[-1, 0.5, 0]}>
-        <mesh position={[-0.2, 0.2, 0]} rotation={[0, 0, 0.5]}>
-          <boxGeometry args={[0.5, 0.1, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+      <group position={[-1, 0.8, 0]}>
+        <mesh position={[-0.3, 0.3, 0]} rotation={[0, 0, 0.5]}>
+          <boxGeometry args={[0.8, 0.15, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
-        <mesh position={[0.2, 0.2, 0]} rotation={[0, 0, -0.5]}>
-          <boxGeometry args={[0.5, 0.1, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        <mesh position={[0.3, 0.3, 0]} rotation={[0, 0, -0.5]}>
+          <boxGeometry args={[0.8, 0.15, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
-        <mesh position={[0, -0.2, 0]}>
-          <boxGeometry args={[0.1, 0.4, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        <mesh position={[0, -0.3, 0]}>
+          <boxGeometry args={[0.15, 0.6, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
       </group>
 
       {/* A */}
-      <group position={[0.5, 0.5, 0]}>
-        <mesh position={[-0.2, 0, 0]} rotation={[0, 0, 0.3]}>
-          <boxGeometry args={[0.9, 0.1, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+      <group position={[0.5, 0.8, 0]}>
+        <mesh position={[-0.3, 0, 0]} rotation={[0, 0, 0.3]}>
+          <boxGeometry args={[1.3, 0.15, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
-        <mesh position={[0.2, 0, 0]} rotation={[0, 0, -0.3]}>
-          <boxGeometry args={[0.9, 0.1, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        <mesh position={[0.3, 0, 0]} rotation={[0, 0, -0.3]}>
+          <boxGeometry args={[1.3, 0.15, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
-        <mesh position={[0, 0, 0]}>
-          <boxGeometry args={[0.4, 0.1, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        <mesh position={[0, 0.1, 0]}>
+          <boxGeometry args={[0.6, 0.15, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
       </group>
 
       {/* N */}
-      <group position={[2, 0.5, 0]}>
-        <mesh position={[-0.3, 0, 0]}>
-          <boxGeometry args={[0.1, 0.8, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+      <group position={[2, 0.8, 0]}>
+        <mesh position={[-0.4, 0, 0]}>
+          <boxGeometry args={[0.15, 1.2, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
-        <mesh position={[0.3, 0, 0]}>
-          <boxGeometry args={[0.1, 0.8, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        <mesh position={[0.4, 0, 0]}>
+          <boxGeometry args={[0.15, 1.2, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
         <mesh position={[0, 0, 0]} rotation={[0, 0, 0.5]}>
-          <boxGeometry args={[0.7, 0.1, 0.3]} />
-          <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+          <boxGeometry args={[1, 0.15, 0.4]} />
+          <meshStandardMaterial {...zayanMaterial} />
         </mesh>
       </group>
 
       {/* KHAN */}
       {/* K */}
-      <group position={[-2.5, -0.8, 0]}>
-        <mesh position={[-0.3, 0, 0]}>
-          <boxGeometry args={[0.1, 0.8, 0.3]} />
-          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+      <group position={[-2.5, -0.5, 0]}>
+        <mesh position={[-0.4, 0, 0]}>
+          <boxGeometry args={[0.15, 1.2, 0.4]} />
+          <meshStandardMaterial {...khanMaterial} />
         </mesh>
-        <mesh position={[0, 0.2, 0]} rotation={[0, 0, -0.7]}>
-          <boxGeometry args={[0.5, 0.1, 0.3]} />
-          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        <mesh position={[0.1, 0.3, 0]} rotation={[0, 0, -0.7]}>
+          <boxGeometry args={[0.8, 0.15, 0.4]} />
+          <meshStandardMaterial {...khanMaterial} />
         </mesh>
-        <mesh position={[0, -0.2, 0]} rotation={[0, 0, 0.7]}>
-          <boxGeometry args={[0.5, 0.1, 0.3]} />
-          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        <mesh position={[0.1, -0.3, 0]} rotation={[0, 0, 0.7]}>
+          <boxGeometry args={[0.8, 0.15, 0.4]} />
+          <meshStandardMaterial {...khanMaterial} />
         </mesh>
       </group>
 
       {/* H */}
-      <group position={[-1, -0.8, 0]}>
-        <mesh position={[-0.3, 0, 0]}>
-          <boxGeometry args={[0.1, 0.8, 0.3]} />
-          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+      <group position={[-1, -0.5, 0]}>
+        <mesh position={[-0.4, 0, 0]}>
+          <boxGeometry args={[0.15, 1.2, 0.4]} />
+          <meshStandardMaterial {...khanMaterial} />
         </mesh>
-        <mesh position={[0.3, 0, 0]}>
-          <boxGeometry args={[0.1, 0.8, 0.3]} />
-          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        <mesh position={[0.4, 0, 0]}>
+          <boxGeometry args={[0.15, 1.2, 0.4]} />
+          <meshStandardMaterial {...khanMaterial} />
         </mesh>
         <mesh position={[0, 0, 0]}>
-          <boxGeometry args={[0.6, 0.1, 0.3]} />
-          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+          <boxGeometry args={[0.8, 0.15, 0.4]} />
+          <meshStandardMaterial {...khanMaterial} />
         </mesh>
       </group>
 
       {/* A */}
-      <group position={[0.5, -0.8, 0]}>
-        <mesh position={[-0.2, 0, 0]} rotation={[0, 0, 0.3]}>
-          <boxGeometry args={[0.9, 0.1, 0.3]} />
-          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+      <group position={[0.5, -0.5, 0]}>
+        <mesh position={[-0.3, 0, 0]} rotation={[0, 0, 0.3]}>
+          <boxGeometry args={[1.3, 0.15, 0.4]} />
+          <meshStandardMaterial {...khanMaterial} />
         </mesh>
-        <mesh position={[0.2, 0, 0]} rotation={[0, 0, -0.3]}>
-          <boxGeometry args={[0.9, 0.1, 0.3]} />
-          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        <mesh position={[0.3, 0, 0]} rotation={[0, 0, -0.3]}>
+          <boxGeometry args={[1.3, 0.15, 0.4]} />
+          <meshStandardMaterial {...khanMaterial} />
         </mesh>
-        <mesh position={[0, 0, 0]}>
-          <boxGeometry args={[0.4, 0.1, 0.3]} />
-          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        <mesh position={[0, 0.1, 0]}>
+          <boxGeometry args={[0.6, 0.15, 0.4]} />
+          <meshStandardMaterial {...khanMaterial} />
         </mesh>
       </group>
 
       {/* N */}
-      <group position={[2, -0.8, 0]}>
-        <mesh position={[-0.3, 0, 0]}>
-          <boxGeometry args={[0.1, 0.8, 0.3]} />
-          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+      <group position={[2, -0.5, 0]}>
+        <mesh position={[-0.4, 0, 0]}>
+          <boxGeometry args={[0.15, 1.2, 0.4]} />
+          <meshStandardMaterial {...khanMaterial} />
         </mesh>
-        <mesh position={[0.3, 0, 0]}>
-          <boxGeometry args={[0.1, 0.8, 0.3]} />
-          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+        <mesh position={[0.4, 0, 0]}>
+          <boxGeometry args={[0.15, 1.2, 0.4]} />
+          <meshStandardMaterial {...khanMaterial} />
         </mesh>
         <mesh position={[0, 0, 0]} rotation={[0, 0, 0.5]}>
-          <boxGeometry args={[0.7, 0.1, 0.3]} />
-          <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} roughness={0.2} />
+          <boxGeometry args={[1, 0.15, 0.4]} />
+          <meshStandardMaterial {...khanMaterial} />
         </mesh>
       </group>
     </group>
