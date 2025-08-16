@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import CyberScene3D from '@/components/CyberScene3D';
+import heroBg from '@/assets/hero-bg.jpg';
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -10,70 +11,69 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* 3D Canvas Background */}
-      <div className="absolute inset-0 -z-10">
-        <CyberScene3D />
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden cyber-grid">
+      {/* Matrix Rain Effect */}
+      <div className="matrix-overlay" />
+      
+      {/* Scan Lines */}
+      <div className="scan-lines absolute inset-0" />
+      
+      {/* 3D Scene Background */}
+      <CyberScene3D />
+      
+      {/* Background Image with Holographic Effect */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 mix-blend-screen"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+      
+      {/* Floating 3D Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="floating-3d absolute top-20 left-10 w-16 h-16 bg-gradient-holographic rounded-lg border border-primary/30 neon-glow" />
+        <div className="floating-3d absolute top-40 right-20 w-12 h-12 bg-gradient-cyber rounded-full border border-neon-pink/30 shadow-hologram" />
+        <div className="floating-3d absolute bottom-40 left-1/4 w-20 h-20 bg-gradient-neon rounded-xl border border-accent/30 data-stream" />
+        <div className="floating-3d absolute bottom-20 right-1/3 w-8 h-8 bg-primary/50 rounded-full animate-neon-pulse" />
+        <div className="floating-3d absolute top-1/3 left-1/2 w-6 h-6 bg-neon-green/60 rounded-lg transform -translate-x-1/2" />
       </div>
-      
-      {/* Protective Overlay for Text Readability */}
-      <div className="pointer-events-none absolute inset-0 bg-black/30" />
-      
-      {/* Starfield Background */}
-      <div className="absolute inset-0 -z-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(120,119,198,0.3),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,rgba(236,72,153,0.3),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.2),transparent_70%)]" />
-      </div>
-      
-      {/* Subtle Vignette */}
-      <div className="absolute inset-0 -z-10 bg-gradient-radial from-transparent via-transparent to-black/40" />
 
-      {/* Hero Content - Safe Area Above Canvas */}
-      <div className="relative z-20 container mx-auto max-w-4xl text-center pt-28 lg:pt-36 px-6">
-        {/* Glass Backdrop Container */}
-        <div className="backdrop-blur-xl bg-white/10 dark:bg-white/8 rounded-3xl px-8 py-10 shadow-2xl ring-1 ring-white/20">
-          
-          {/* Main Heading */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 bg-gradient-to-r from-sky-300 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent drop-shadow-lg">
-            Zayan Khan
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <div className="animate-slide-up">
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 holographic">
+            ZAYAN KHAN
           </h1>
-          
-          {/* Subheadline */}
-          <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Engineering next-gen systems — scalable backends, automation, and DevEx tooling.
+          <p className="text-xl md:text-2xl text-primary mb-8 max-w-2xl mx-auto neon-glow">
+            FULL-STACK ARCHITECT & CODE VISIONARY
+          </p>
+          <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+            Engineering next-generation solutions with cutting-edge technologies. 
+            Specializing in scalable architectures, automation tools, and developer experience innovations that push the boundaries of what's possible.
           </p>
           
-          {/* Call-to-Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            {/* Primary CTA */}
-            <button
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              variant="hero" 
+              size="lg" 
               onClick={scrollToProjects}
-              className="group relative overflow-hidden rounded-full px-8 py-4 font-semibold text-white text-lg transition-all duration-200 hover:scale-105 hover:shadow-xl hover:brightness-110 bg-gradient-to-r from-sky-400 via-fuchsia-500 to-pink-500 shadow-lg"
+              className="text-lg px-8 py-4"
             >
-              <span className="relative z-10">View Projects</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-sky-300 via-fuchsia-400 to-pink-400 opacity-0 group-hover:opacity-30 transition-opacity duration-200" />
-            </button>
-            
-            {/* Secondary CTA */}
-            <button
+              VIEW PROJECTS
+            </Button>
+            <Button 
+              variant="cyber" 
+              size="lg"
+              className="text-lg px-8 py-4"
               onClick={() => window.open('https://github.com/ZayanKhan-12', '_blank')}
-              className="group relative overflow-hidden rounded-full px-8 py-4 font-semibold text-white text-lg transition-all duration-200 hover:scale-105 hover:shadow-lg hover:bg-white/15 bg-white/10 ring-1 ring-white/30 backdrop-blur-sm"
             >
-              <span className="relative z-10">GitHub Repository</span>
-              <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-            </button>
+              GITHUB REPOSITORY
+            </Button>
           </div>
         </div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-30">
-        <div className="relative">
-          <div className="w-8 h-14 border-2 border-white/60 rounded-full flex justify-center backdrop-blur-sm bg-white/10">
-            <div className="w-2 h-4 bg-gradient-to-b from-sky-400 to-fuchsia-400 rounded-full mt-3 animate-pulse" />
-          </div>
-          <div className="absolute -inset-2 bg-white/10 blur-lg rounded-full" />
+      {/* Cyber Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center neon-glow">
+          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-data-flow" />
         </div>
       </div>
     </section>
