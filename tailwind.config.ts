@@ -19,8 +19,11 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				grotesk: ['Space Grotesk', 'sans-serif'],
-				mono: ['JetBrains Mono', 'monospace'],
+				'sora': ['Sora', 'sans-serif'],
+				'space-grotesk': ['Space Grotesk', 'sans-serif'],
+				'inter': ['Inter', 'sans-serif'],
+				'heading': ['Sora', 'sans-serif'],
+				'body': ['Inter', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -72,10 +75,10 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			backgroundImage: {
-				'gradient-holographic': 'var(--gradient-holographic)',
-				'gradient-cyber': 'var(--gradient-cyber)',
-				'gradient-neon': 'var(--gradient-neon)',
-				'gradient-matrix': 'var(--gradient-matrix)',
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-cyber': 'linear-gradient(135deg, hsl(200 100% 60%), hsl(280 100% 70%), hsl(320 100% 65%))',
+				'gradient-neon': 'linear-gradient(135deg, hsl(280 100% 70%), hsl(320 100% 65%), hsl(340 100% 60%))',
+				'gradient-holographic': 'linear-gradient(135deg, hsl(200 100% 60%), hsl(240 100% 70%), hsl(280 100% 70%))',
 			},
 			boxShadow: {
 				'neon': 'var(--shadow-neon)',
