@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import project1 from '@/assets/project1.jpg';
 import project2 from '@/assets/project2.jpg';
 import project3 from '@/assets/project3.jpg';
+import project4 from '@/assets/project4.jpg';
 
 const Projects = () => {
   const projects = [
@@ -31,6 +32,15 @@ const Projects = () => {
       tags: ['React', 'Web App', 'File Transfer', 'UI/UX'],
       demoUrl: 'https://zayankhan-12.github.io/DevShare/#/',
       githubUrl: 'https://github.com/ZayanKhan-12/DevShare',
+    },
+    {
+      id: 4,
+      title: 'KEYMAPPER',
+      description: 'Advanced keyboard customization tool for power users and developers. Create custom layouts, record macros, and boost productivity with intuitive interface design.',
+      image: project4,
+      tags: ['JavaScript', 'Productivity', 'Customization', 'UI/UX'],
+      demoUrl: 'https://zayankhan-12.github.io/MappedKeyss/',
+      githubUrl: 'https://github.com/ZayanKhan-12/MappedKeyss',
     },
   ];
 
